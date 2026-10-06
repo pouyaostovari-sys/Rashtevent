@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لیوینگ‌لب گیلان | از رویداد تا خلق تجربه واقعی</title>
+  <meta name="description" content="لیوینگ‌لب گیلان فضایی است که ایده‌ها و خدمات را با حضور خود مردم شکل می‌دهد. رویداد قهوه، چای و نوشیدنی رشت نقطه شروع این چرخه است." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --ink: #1c1917;
+      --muted: #57534e;
+      --teal: #0f766e;
+      --teal-dark: #0d5c56;
+      --teal-soft: #ecfdf5;
+      --cream: #f5f0e8;
+      --warm: #c2410c;
+      --line: #e7e5e4;
+      --radius: 16px;
+      --shadow: 0 12px 40px -12px rgba(28,25,23,0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Vazirmatn', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      height: 68px;
+      display: flex; align-items: center;
+      padding: 0 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1100px; width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.9rem; color: var(--muted); font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal) !important; color: #fff !important;
+      padding: 0.5rem 1.2rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.85rem;
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 1.5rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem; align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 4rem; }
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--teal-soft); color: var(--teal);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 0.95rem; border-radius: 999px;
+      margin-bottom: 1.35rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 2.9rem);
+      font-weight: 800; line-height: 1.28;
+      margin-bottom: 1.15rem; letter-spacing: -0.025em;
+    }
+    .hero-lead {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 480px; margin-bottom: 1.85rem; line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1.55rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem;
+      border: none; cursor: pointer; transition: all 0.25s;
+    }
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 6px 20px rgba(15,118,110,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+    .hero-visual {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-visual img {
+      width: 100%; height: 400px; object-fit: cover;
+    }
+    .hero-visual-caption {
+      position: absolute; bottom: 0; right: 0; left: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: #fff; padding: 2rem 1.25rem 1.15rem;
+      font-size: 0.9rem;
+    }
+
+    /* BRIDGE */
+    .bridge {
+      background: var(--ink);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .bridge p {
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 600; max-width: 680px; margin: 0 auto;
+      line-height: 1.55;
+    }
+    .bridge strong { color: #5eead4; }
+
+    /* SECTIONS */
+    section { padding: 4.5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .label {
+      font-size: 0.75rem; font-weight: 700; color: var(--teal);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .title {
+      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      font-weight: 800; margin-bottom: 0.7rem; line-height: 1.3;
+    }
+    .desc { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+    /* HUMAN */
+    .human-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; margin-top: 2.5rem;
+    }
+    @media (max-width: 800px) { .human-grid { grid-template-columns: 1fr; } }
+    .human-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.4rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .human-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .human-card h3 {
+      font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--teal);
+    }
+    .human-card p { font-size: 0.92rem; color: var(--muted); }
+
+    /* CASE */
+    .case {
+      background: var(--surface);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 2.5rem;
+      border: 1px solid var(--line);
+    }
+    .case-invite {
+      background: linear-gradient(145deg, #0f766e 0%, #134e4a 55%, #1a3a36 100%);
+      color: #fff;
+      padding: 2.25rem 2rem;
+      position: relative;
+    }
+    .case-invite::after {
+      content: '';
+      position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+    .case-invite .date {
+      font-size: 0.85rem; opacity: 0.9; margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+    .case-invite h3 {
+      font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+      font-weight: 700; margin-bottom: 0.5rem; line-height: 1.35;
+    }
+    .case-invite .sub {
+      font-size: 0.98rem; opacity: 0.92;
+    }
+    .case-body { padding: 2rem 1.85rem; }
+    .case-meta {
+      display: flex; flex-wrap: wrap; gap: 1rem 2rem;
+      font-size: 0.9rem; color: var(--muted);
+      margin-bottom: 1.6rem; padding-bottom: 1.35rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .case-meta strong { color: var(--ink); }
+    .case-goal {
+      margin-bottom: 1.5rem;
+    }
+    .case-goal h4 {
+      font-size: 1.05rem; margin-bottom: 0.5rem;
+    }
+    .case-goal p {
+      font-size: 0.98rem; color: var(--muted);
+    }
+    .case-connect {
+      background: var(--teal-soft);
+      border-radius: 12px;
+      padding: 1.25rem 1.2rem;
+      margin-bottom: 1.75rem;
+    }
+    .case-connect h4 {
+      font-size: 0.98rem; color: var(--teal-dark); margin-bottom: 0.4rem;
+    }
+    .case-connect p { font-size: 0.92rem; color: var(--ink); }
+
+    .benefits {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    @media (max-width: 600px) { .benefits { grid-template-columns: 1fr; } }
+    .benefit {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 1.1rem 1.15rem;
+    }
+    .benefit h5 {
+      font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--teal);
+    }
+    .benefit p { font-size: 0.86rem; color: var(--muted); }
+
+    /* CYCLE */
+    .cycle-row {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; margin-top: 2.5rem;
+    }
+    @media (max-width: 850px) { .cycle-row { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .cycle-row { grid-template-columns: 1fr; } }
+    .cycle-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .cycle-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .cycle-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--teal); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+      margin: 0 auto 0.85rem;
+    }
+    .cycle-item h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .cycle-item p { font-size: 0.86rem; color: var(--muted); }
+
+    /* DOMAINS */
+    .domains-wrap {
+      display: flex; flex-wrap: wrap; gap: 0.7rem;
+      margin-top: 2rem;
+    }
+    .domain-tag {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 0.55rem 1.1rem; border-radius: 999px;
+      font-size: 0.9rem; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .domain-tag:hover {
+      background: var(--teal); color: #fff; border-color: var(--teal);
+    }
+
+    /* WHO */
+    .who-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem; margin-top: 2.4rem;
+    }
+    @media (max-width: 800px) { .who-grid { grid-template-columns: 1fr; } }
+    .who-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: transform 0.25s;
+    }
+    .who-card:hover { transform: translateY(-3px); }
+    .who-card h4 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .who-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* IMAGE STRIP */
+    .img-strip {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem; margin: 2.5rem 0 0;
+    }
+    @media (max-width: 700px) { .img-strip { grid-template-columns: 1fr; } }
+    .img-strip img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 14px;
+    }
+
+    /* CTA */
+    .cta-block {
+      background: linear-gradient(145deg, #0f766e, #0d5c56);
+      color: #fff;
+      border-radius: 20px;
+      padding: 2.75rem 2rem;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(15,118,110,0.25);
+    }
+    .cta-block h2 { font-size: 1.5rem; margin-bottom: 0.55rem; }
+    .cta-block p {
+      opacity: 0.92; margin-bottom: 1.5rem;
+      max-width: 460px; margin-left: auto; margin-right: auto;
+    }
+    .cta-block .btn-primary {
+      background: #fff; color: var(--teal);
+      box-shadow: none;
+    }
+    .cta-block .btn-primary:hover {
+      background: #ecfdf5;
+      transform: translateY(-2px);
+    }
+
+    /* FORM */
+    .form-section { background: var(--surface); }
+    .form-box {
+      max-width: 520px; margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .form-box h2 {
+      text-align: center; font-size: 1.35rem; margin-bottom: 0.35rem;
+    }
+    .form-box > p {
+      text-align: center; color: var(--muted);
+      font-size: 0.95rem; margin-bottom: 1.5rem;
+    }
+    .fg { margin-bottom: 0.9rem; }
+    .fg label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: var(--muted); margin-bottom: 0.3rem;
+    }
+    .fg input, .fg select, .fg textarea {
+      width: 100%; padding: 0.72rem 0.95rem;
+      border: 1.5px solid var(--line); border-radius: 10px;
+      font-family: inherit; font-size: 0.92rem; background: #fff;
+      transition: border-color 0.2s;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      outline: none; border-color: var(--teal);
+    }
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    @media (max-width: 500px) { .fr { grid-template-columns: 1fr; } }
+    .submit {
+      width: 100%; background: var(--teal); color: #fff;
+      border: none; border-radius: 999px; padding: 0.9rem;
+      font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.2s;
+    }
+    .submit:hover { background: var(--teal-dark); }
+    .note {
+      text-align: center; font-size: 0.75rem;
+      color: var(--muted); margin-top: 0.9rem;
+    }
+
+    footer {
+      background: var(--ink);
+      color: #a8a29e;
+      padding: 2.25rem 1.5rem;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+    footer strong { color: #fff; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">لیوینگ‌لب <span>گیلان</span></div>
+      <ul class="nav-links">
+        <li><a href="#human">رویکرد</a></li>
+        <li><a href="#case">رویدادها</a></li>
+        <li><a href="#cycle">چرخه هم‌آفرینی</a></li>
+        <li><a href="#join" class="nav-cta">عضویت در هم‌آفرینی گیلان</a></li>
+      </ul>
+      <button class="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <div class="hero-badge">از رویداد تا تجربه</div>
+      <h1>از رویداد تا خلق تجربه واقعی</h1>
+      <p class="hero-lead">
+        لیوینگ‌لب گیلان فضایی است که ایده‌ها و خدمات را با حضور خود مردم شکل می‌دهد و در محیط واقعی آزمایش می‌کند.
+        رویدادهای لیوینگ‌لب گیلان، یکی از مسیرهای ورود به این چرخه هستند.
+      </p>
+      <div class="hero-actions">
+        <a href="#case" class="btn btn-primary">در رویداد قهوه، چای و نوشیدنی رشت، با هم کشف می‌کنیم</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85" alt="تجربه قهوه و گفتگو" />
+      <div class="hero-visual-caption">تجربه واقعی · گفتگو · کشف مشترک</div>
+    </div>
+  </header>
+
+  <div class="bridge">
+    <p>
+      رویداد فقط برای دیدن و شنیدن نیست.<br>
+      <strong>رویداد می‌تواند شروع ساختن با هم باشد.</strong>
+    </p>
+  </div>
+
+  <!-- HUMAN -->
+  <section id="human">
+    <div class="container">
+      <div class="label">رویکرد</div>
+      <h2 class="title">انسان در مرکز</h2>
+      <p class="desc">
+        لیوینگ‌لب یعنی راه‌حل‌ها، محصولات و خدمات جدید با همراهی شهروندان و جامعه ساخته می‌شود؛ نه فقط برای آن‌ها.
+      </p>
+
+      <div class="human-grid">
+        <div class="human-card">
+          <h3>شنیدن واقعی</h3>
+          <p>نیازها، سلیقه‌ها و پیشنهادها در محیط واقعی و از کسانی که مصرف‌کننده واقعی هستند شنیده می‌شود.</p>
+        </div>
+        <div class="human-card">
+          <h3>با هم ساختن</h3>
+          <p>همگی دور یک میز می‌نشینند، کشف می‌کنند و می‌سازند.</p>
+        </div>
+        <div class="human-card">
+          <h3>آزمایش در زندگی روزمره</h3>
+          <p>نمونه در دل رویداد، مزرعه و در دل شهر یا بازار تست می‌شود تا ببینیم واقعاً برای مخاطبان مطلوب است یا نه.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE -->
+  <section id="case" style="background: var(--surface);">
+    <div class="container">
+      <div class="label">نمونه واقعی</div>
+      <h2 class="title">رویداد قهوه و چای، فرصتی برای همدلی و هم‌نشینی با مخاطبان</h2>
+      <p class="desc">
+        این رویداد فقط یک نمایشگاه نیست. می‌تواند نقطه شروع ورود به چرخه همدلی فعالان، کافه‌ها، تأمین‌کنندگان و تولیدکنندگان با مشتریان بالقوه باشد.
+      </p>
+
+      <div class="case">
+        <div class="case-invite">
+          <div class="date">جمعه ۱۵ آبان · کارخانه نوآوری گیلان · رشت</div>
+          <h3>روزی برای چشیدن، کشف کردن و تجربه کردن</h3>
+          <p class="sub">رویدادی تجربه‌محور برای دوستداران قهوه، چای و نوشیدنی · ساعت ۹ تا ۱۵</p>
+        </div>
+        <div class="case-body">
+          <div class="case-meta">
+            <span><strong>مکان:</strong> گیلان، رشت (جنب مجتمع فنی)</span>
+            <span><strong>بلیط:</strong> gilanfact.ir</span>
+            <span><strong>اینستاگرام:</strong> Rasht.event</span>
+          </div>
+
+          <div class="case-goal">
+            <h4>هدف رویداد از نگاه لیوینگ‌لب</h4>
+            <p>
+              ایجاد فضای واقعی برای چشیدن، گفتگو و آشنایی بین تولیدکننده، رُستر، کافه‌دار، نوآور و مصرف‌کننده.
+              این فضا می‌تواند به هم‌آفرینی محصولات، بسته‌بندی، تجربه سرو و حتی مدل‌های جدید کسب‌وکار، محصول و خدمت منجر شود.
+            </p>
+          </div>
+
+          <div class="case-connect">
+            <h4>اتصال شرکت‌کنندگان به لیوینگ‌لب</h4>
+            <p>
+              شرکت‌کنندگان رویداد می‌توانند پس از آن وارد چرخه شوند: تعریف مسئله مشترک ← کارگاه هم‌آفرینی ← ساخت نمونه ← تست با مشتری واقعی در کافه یا بازار.
+            </p>
+          </div>
+
+          <h4 style="font-size:1.05rem;margin-bottom:0.95rem;">برای هر گروه از مخاطبان چه دستاوردهایی پیش‌بینی شده است؟</h4>
+          <div class="benefits">
+            <div class="benefit">
+              <h5>بازدیدکننده و دوستدار قهوه/چای</h5>
+              <p>تجربه واقعی، یادگیری، امکان مشارکت در طراحی محصول یا تجربه جدید</p>
+            </div>
+            <div class="benefit">
+              <h5>رُستر، کافه و برند</h5>
+              <p>بازخورد مستقیم مشتری، ایده برای محصول جدید، شبکه و فرصت تست میدانی</p>
+            </div>
+            <div class="benefit">
+              <h5>استارتاپ و نوآور</h5>
+              <p>دسترسی به کاربر واقعی، اعتبارسنجی ایده، پیدا کردن شریک و پایلوت</p>
+            </div>
+            <div class="benefit">
+              <h5>اسپانسر و حامی</h5>
+              <p>دیده شدن در فضای تجربه‌محور + مشارکت در خلق ارزش پایدار، نه فقط تبلیغ</p>
+            </div>
+            <div class="benefit">
+              <h5>نهاد و سیاست‌گذار</h5>
+              <p>مشاهده نیاز واقعی اکوسیستم محلی و امکان طراحی برنامه حمایتی مبتنی بر شواهد</p>
+            </div>
+            <div class="benefit">
+              <h5>کارخانه نوآوری</h5>
+              <p>تبدیل رویداد به ورودی پایدار برای پروژه‌های لیوینگ‌لب و شبکه ذینفعان</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-strip">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=85" alt="قهوه تازه" />
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=85" alt="تجربه چشیدن" />
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e738245a2?auto=format&fit=crop&w=600&q=85" alt="فضای گفتگو" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CYCLE -->
+  <section id="cycle">
+    <div class="container">
+      <div class="label">چرخه هم‌آفرینی</div>
+      <h2 class="title">از کشف تا شکل‌گیری محصول یا سرویس جدید</h2>
+      <p class="desc">
+        هر رویدادی می‌تواند این مسیر را طی کند — قهوه و چای اولین رویدادی است که در این چرخه هم‌آفرینی قرار می‌گیرد.
+      </p>
+
+      <div class="cycle-row">
+        <div class="cycle-item">
+          <div class="cycle-num">۱</div>
+          <h4>رویداد</h4>
+          <p>آشنایی، چشیدن، گفتگو و کشف مسئله‌های واقعی</p>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-num">۲</div>
+          <h4>هم‌آفرینی</h4>
+          <p>کارگاه با حضور کاربران و ذینفعان برای ساخت ایده و نمونه</p>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-num">۳</div>
+          <h4>تست میدانی</h4>
+          <p>آزمایش نمونه در کافه، مزرعه، اقامتگاه یا بازار واقعی</p>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-num">۴</div>
+          <h4>یادگیری و تکرار</h4>
+          <p>بینش، اصلاح و آماده‌سازی برای نسخه بعدی یا مقیاس‌پذیری</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section style="background: var(--surface);">
+    <div class="container">
+      <div class="label">حوزه‌ها</div>
+      <h2 class="title">هر جا مردم و مسئله واقعی باشد</h2>
+      <p class="desc">
+        لیوینگ‌لب محدود به یک صنعت نیست. هر موضوعی که با زندگی واقعی مردم گره خورده باشد، می‌تواند موضوع هم‌آفرینی شود.
+      </p>
+      <div class="domains-wrap">
+        <span class="domain-tag">غذا و نوشیدنی</span>
+        <span class="domain-tag">کشاورزی و محصولات بومی</span>
+        <span class="domain-tag">گردشگری و تجربه</span>
+        <span class="domain-tag">بسته‌بندی و طراحی محصول</span>
+        <span class="domain-tag">سلامت و سبک زندگی</span>
+        <span class="domain-tag">اقتصاد محلی</span>
+        <span class="domain-tag">فناوری و دیجیتال</span>
+        <span class="domain-tag">آموزش و مهارت</span>
+        <span class="domain-tag">فرهنگ و خلاقیت</span>
+        <span class="domain-tag">خدمات عمومی</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section>
+    <div class="container">
+      <div class="label">چه کسانی؟</div>
+      <h2 class="title">هر نقشی جایی در چرخه دارد</h2>
+      <p class="desc">از بازدیدکننده رویداد تا اسپانسر — همه می‌توانند وارد شوند.</p>
+
+      <div class="who-grid">
+        <div class="who-card">
+          <h4>مردم و کاربران</h4>
+          <p>تجربه می‌کنند، نظر می‌دهند و در ساخت راه‌حل بعدی نقش دارند.</p>
+        </div>
+        <div class="who-card">
+          <h4>تولیدکننده و کسب‌وکار</h4>
+          <p>بازخورد واقعی می‌گیرند و محصول یا خدمت را قبل از هزینه بزرگ تست می‌کنند.</p>
+        </div>
+        <div class="who-card">
+          <h4>استارتاپ و نوآوران</h4>
+          <p>به کاربر واقعی و محیط تست دسترسی پیدا می‌کنند.</p>
+        </div>
+        <div class="who-card">
+          <h4>اسپانسر و حامی</h4>
+          <p>به‌جای تبلیغ صرف، در خلق تجربه و ارزش پایدار مشارکت می‌کنند.</p>
+        </div>
+        <div class="who-card">
+          <h4>نهاد و دانشگاه</h4>
+          <p>سیاست و پژوهش را به میدان واقعی و داده میدانی وصل می‌کنند.</p>
+        </div>
+        <div class="who-card">
+          <h4>کارخانه نوآوری</h4>
+          <p>رویداد را به ورودی پایدار شبکه و پروژه‌های لیوینگ‌لب تبدیل می‌کند.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-block">
+        <h2>از همین رویداد شروع کنید</h2>
+        <p>
+          اگر در رویداد قهوه و چای شرکت می‌کنید یا می‌خواهید در رویدادهای بعدی و چرخه لیوینگ‌لب باشید، علاقه‌مندی خود را ثبت کنید.
+        </p>
+        <a href="#join" class="btn btn-primary">ثبت علاقه‌مندی و عضویت اولیه</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="join">
+    <div class="form-box">
+      <h2>ورود به چرخه لیوینگ‌لب</h2>
+      <p>فرم کوتاه؛ برای دعوت به رویدادها و فعالیت‌های بعدی</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="fr">
+          <div class="fg">
+            <label>نام و نام خانوادگی *</label>
+            <input type="text" id="name" required placeholder="سارا محمدی" />
+          </div>
+          <div class="fg">
+            <label>نقش شما *</label>
+            <select id="role" required>
+              <option value="">انتخاب کنید</option>
+              <option value="بازدیدکننده / دوستدار قهوه و چای">بازدیدکننده / دوستدار قهوه و چای</option>
+              <option value="رستر / کافه / برند نوشیدنی">رستر / کافه / برند نوشیدنی</option>
+              <option value="تولیدکننده / تأمین‌کننده">تولیدکننده / تأمین‌کننده</option>
+              <option value="استارتاپ / نوآور">استارتاپ / نوآور</option>
+              <option value="اسپانسر / حامی">اسپانسر / حامی</option>
+              <option value="نهاد دولتی / حمایتی">نهاد دولتی / حمایتی</option>
+              <option value="دانشگاهی / پژوهشی">دانشگاهی / پژوهشی</option>
+              <option value="فعال گردشگری / اقامتگاه">فعال گردشگری / اقامتگاه</option>
+              <option value="کشاورز / تولیدکننده محصولات بومی">کشاورز / تولیدکننده محصولات بومی</option>
+              <option value="سایر">سایر</option>
+            </select>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="fg">
+            <label>سازمان / برند</label>
+            <input type="text" id="org" placeholder="نام مجموعه (اختیاری)" />
+          </div>
+          <div class="fg">
+            <label>علاقه اصلی *</label>
+            <select id="interest" required>
+              <option value="">انتخاب کنید</option>
+              <option value="رویداد قهوه و چای">رویداد قهوه و چای</option>
+              <option value="غذا و نوشیدنی">غذا و نوشیدنی</option>
+              <option value="کشاورزی و محصولات بومی">کشاورزی و محصولات بومی</option>
+              <option value="گردشگری و تجربه">گردشگری و تجربه</option>
+              <option value="بسته‌بندی و طراحی محصول">بسته‌بندی و طراحی محصول</option>
+              <option value="چند حوزه / سایر">چند حوزه / سایر</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>شماره تماس *</label>
+          <input type="tel" id="phone" required placeholder="۰۹۱۲xxxxxxx" dir="ltr" style="text-align:left;" />
+        </div>
+        <div class="fg">
+          <label>پیام کوتاه (اختیاری)</label>
+          <textarea id="message" rows="2" placeholder="چه چیزی برایتان مهم است؟"></textarea>
+        </div>
+        <button type="submit" class="submit">ثبت و ورود به چرخه</button>
+        <p class="note">اطلاعات فقط برای ارتباط مربوط به رویدادها و لیوینگ‌لب استفاده می‌شود.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <strong>لیوینگ‌لب گیلان</strong> · میزبان: کارخانه نوآوری گیلان<br>
+      رویداد قهوه و چای · ۱۵ آبان · gilanfact.ir
+    </p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('ثبت شد.\n\nنام: ' + document.getElementById('name').value + '\n\nبه‌زودی برای رویدادها و فعالیت‌های بعدی با شما تماس گرفته می‌شود.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
